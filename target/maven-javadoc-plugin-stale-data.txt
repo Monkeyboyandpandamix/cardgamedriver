@@ -1,0 +1,48 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/src/main/java:/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'cardgamedriver 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'cardgamedriver 1.0-SNAPSHOT API'
+edu.guilford
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/src/main/java = 1739138575000
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/generated-sources/annotations = 1739153455997
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/tag-search-index.js = 1739153457200
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/overview-tree.html = 1739153457191
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/module-search-index.js = 1739153457198
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/index.html = 1739153457209
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/package-search-index.js = 1739153457199
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/link.svg = 1739153390738
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/index-all.html = 1739153457206
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/allpackages-index.html = 1739153457198
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/member-search-index.js = 1739153457200
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/copy.svg = 1739153390738
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/script.js = 1739153390738
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/stylesheet.css = 1739153390737
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/search-page.js = 1739153390739
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/help-doc.html = 1739153457210
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/element-list = 1739153457168
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/search.html = 1739153457207
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/allclasses-index.html = 1739153457197
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/type-search-index.js = 1739153457199
+/Users/mohammadaghamohammadi/Documents/GitHub/cardgamedriver/target/reports/apidocs/search.js = 1739153390739
