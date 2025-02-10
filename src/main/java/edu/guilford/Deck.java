@@ -61,6 +61,9 @@ public class Deck {
      * @return the dealt card
      */
     public Card deal() {
+        if (deck.isEmpty()) {
+            return null; // or throw an exception
+        }
         return deck.remove(0);
     }
 

@@ -71,12 +71,16 @@ public class LamarckianPoker {
             player1Hand.addCard(deck.deal());
             player2Hand.addCard(deck.deal());
         }
+        makePool(); // Create the pool after dealing cards
     }
 
     /**
      * Creates a pool of four cards from the deck.
      */
     public void makePool() {
+        if (deck.size() < 4) {
+            return; // Not enough cards to make a pool
+        }
         pool = new Hand();
         for (int iCard = 0; iCard < 4; iCard++) {
             pool.addCard(deck.deal());
@@ -89,7 +93,11 @@ public class LamarckianPoker {
      */
     public boolean turn() {
         if (player1Hand.size() < 7 || player2Hand.size() < 7) {
-            makePool();
+            makePool(); // Ensure the pool is created before proceeding
+
+            if (player1Hand.size() == 0 || player2Hand.size() == 0) {
+                return false; // Cannot proceed if either hand is empty
+            }
             Card player1Card = player1Hand.getCard(rand.nextInt(player1Hand.size()));
             Card player2Card = player2Hand.getCard(rand.nextInt(player2Hand.size()));
             Hand firstHand, secondHand;
@@ -158,11 +166,13 @@ public class LamarckianPoker {
             }
             iTurn++;
             
-            return true;
+            return true; 
         } else {
-            return false;
+            return false; 
         }
     }
+
+    /**
 
     /**
      * Returns a string representation of the players' hands and the pool.
