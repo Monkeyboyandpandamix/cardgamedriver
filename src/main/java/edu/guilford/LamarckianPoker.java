@@ -3,7 +3,11 @@ package edu.guilford;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Represents the game of Lamarckian Poker.
+ */
 public class LamarckianPoker {
+    // The hands of the two players
     private Hand player1Hand;
     private Hand player2Hand;
     private Hand pool;
@@ -12,22 +16,41 @@ public class LamarckianPoker {
     private Random rand = new Random();
     private int iTurn;
 
+    /**
+     * Initializes a new game of Lamarckian Poker and resets the deck.
+     */
     public LamarckianPoker() {
         reset(true);
     }
 
+    /**
+     * Returns the hand of player 1.
+     * @return the hand of player 1
+     */
     public Hand getPlayer1Hand() {
         return player1Hand;
     }
 
+    /**
+     * Returns the hand of player 2.
+     * @return the hand of player 2
+     */
     public Hand getPlayer2Hand() {
         return player2Hand;
     }
 
+    /**
+     * Returns the pool of cards.
+     * @return the pool of cards
+     */
     public Hand getPool() {
         return pool;
     }
 
+    /**
+     * Resets the game, optionally creating a new deck and clearing the discard pile.
+     * @param newDeck true to create a new deck, false to reuse the existing one
+     */
     public void reset(boolean newDeck) {
         if (newDeck) {
             deck = new Deck();
@@ -38,6 +61,9 @@ public class LamarckianPoker {
         iTurn = 0;
     }
 
+    /**
+     * Deals four cards to each player.
+     */
     public void deal() {
         player1Hand = new Hand();
         player2Hand = new Hand();
@@ -47,18 +73,23 @@ public class LamarckianPoker {
         }
     }
 
+    /**
+     * Creates a pool of four cards from the deck.
+     */
     public void makePool() {
         pool = new Hand();
         for (int iCard = 0; iCard < 4; iCard++) {
             pool.addCard(deck.deal());
         }
-        // System.out.println("Deck size: " + deck.size());
     }
 
+    /**
+     * Executes a turn in the game, allowing players to draw cards from the pool based on their selected cards.
+     * @return true if the turn was successful, false otherwise
+     */
     public boolean turn() {
         if (player1Hand.size() < 7 || player2Hand.size() < 7) {
             makePool();
-            // System.out.println("Turn " + iTurn + "\n" + pool);
             Card player1Card = player1Hand.getCard(rand.nextInt(player1Hand.size()));
             Card player2Card = player2Hand.getCard(rand.nextInt(player2Hand.size()));
             Hand firstHand, secondHand;
@@ -85,7 +116,6 @@ public class LamarckianPoker {
                     firstCard = player2Card;
                     secondCard = player1Card;
                 }
-
             }
 
             ArrayList<Card> poolRemove = new ArrayList<Card>();
@@ -120,13 +150,11 @@ public class LamarckianPoker {
                 discard.getDeck().add(poolCard);
             }
             pool.getHand().clear();
-            // System.out.println("Discard\n" + discard.size());
             if (deck.size() < 4) {
                 for (Card card : discard.getDeck()) {
                     deck.getDeck().add(card);
                 }
                 discard.clear();
-                // System.out.println("Discard\n" + discard.size());
             }
             iTurn++;
             
@@ -134,9 +162,12 @@ public class LamarckianPoker {
         } else {
             return false;
         }
-
     }
 
+    /**
+     * Returns a string representation of the players' hands and the pool.
+     * @return a string representation of the game state
+     */
     @Override
     public String toString() {
         return "\nPlayer 1: \n" + player1Hand + "\nPlayer 2: \n" + player2Hand + "\nPool: " + pool + "\n";

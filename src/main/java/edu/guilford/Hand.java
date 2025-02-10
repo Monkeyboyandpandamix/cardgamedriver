@@ -2,97 +2,96 @@ package edu.guilford;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a hand of playing cards.
+ */
 public class Hand {
+    // The cards in the hand
     private ArrayList<Card> hand;
 
-    
-
+    /**
+     * Constructor to create a new hand of cards.
+     */
     public Hand() {
         hand = new ArrayList<Card>();
     }
-
+    /**
+     * Adds a card to the hand.
+     * @param card the card to add
+     */
     public void addCard(Card card) {
         hand.add(card);
     }
 
+    /**
+     * Removes a card from the hand.
+     * @param card the card to remove
+     */
     public void removeCard(Card card) {
         hand.remove(card);
     }
 
-    public void reset() {
-        hand.clear();
-    }
-
-    public int size() {
-        return hand.size();
-    }
-
+    /**
+     * Returns the card at the specified index.
+     * @param index the index of the card to return
+     * @return the card at the specified index
+     */
     public Card getCard(int index) {
         return hand.get(index);
     }
 
-    // Calculate the value of the hand
+    /**
+     * Returns the total value of the hand.
+     * @return the total value of the hand
+     */
     public int getTotalValue() {
-        int value = 0;
-        int aces = 0;
+        int totalValue = 0;
+        int aceCount = 0;
         for (Card card : hand) {
-            switch (card.getRank()) {
-                case TWO:
-                    value += 2;
-                    break;
-                case THREE:
-                    value += 3;
-                    break;
-                case FOUR:
-                    value += 4;
-                    break;
-                case FIVE:
-                    value += 5;
-                    break;
-                case SIX:
-                    value += 6;
-                    break;
-                case SEVEN:
-                    value += 7;
-                    break;
-                case EIGHT:
-                    value += 8;
-                    break;
-                case NINE:
-                    value += 9;
-                    break;
-                case TEN:
-                case JACK:
-                case QUEEN:
-                case KING:
-                    value += 10;
-                    break;
-                case ACE:
-                    aces++;
-                    break;
-            }
-        }
-        for (int i = 0; i < aces; i++) {
-            if (value + 11 <= 21) {
-                value += 11;
+            if (card.getRank() == Card.Rank.ACE) {
+                aceCount++;
+                totalValue += 11; // Initially count Ace as 11
             } else {
-                value += 1;
+                totalValue += Math.min(card.getRank().ordinal() + 1, 10); // Count face cards as 10
             }
         }
-        return value;
-    }
-
-    // Override toString method
-    public String toString() {
-        String handString = "";
-        for (Card card : hand) {
-            handString += card.toString() + "\n";
+        // Adjust for Aces if total value exceeds 21
+        while (totalValue > 21 && aceCount > 0) {
+            totalValue -= 10; // Count Ace as 1 instead of 11
+            aceCount--;
         }
-        return handString;
+        return totalValue;
     }
 
+    /**
+     * Returns the number of cards in the hand.
+     * @return the number of cards in the hand
+     */
+    public int size() {
+        return hand.size();
+    }
+
+    /**
+     * Resets the hand to an empty state.
+     */
+    public void reset() {
+        hand.clear();
+    }
+
+    /**
+     * Returns the cards in the hand.
+     * @return the cards in the hand
+     */
     public ArrayList<Card> getHand() {
         return hand;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder handString = new StringBuilder();
+        for (Card card : hand) {
+            handString.append(card.toString()).append("\n");
+        }
+        return handString.toString();
+    }
 }
